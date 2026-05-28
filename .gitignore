@@ -1,0 +1,16 @@
+# Compilados (Java)
+*.class
+bin/
+out/
+
+# Configurações do Antigravity IDE, IntelliJ e outras ferramentas
+.antigravity/
+.idea/
+.settings/
+.classpath
+.project
+
+# Arquivos temporários do Sistema Operacional
+thumbler.db
+.DS_Store
+Thumbs.db
