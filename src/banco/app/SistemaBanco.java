@@ -340,7 +340,6 @@ public class SistemaBanco {
             "</body></html>", 
             "Teste Automático", JOptionPane.INFORMATION_MESSAGE);
 
-        // 1. Cadastrar pelo menos 2 CC e 2 CP
         Cliente t1 = new Cliente("Aluno Teste CC1", "111.111.111-11", "(11) 91111-1111");
         Cliente t2 = new Cliente("Aluno Teste CC2", "222.222.222-22", "(11) 92222-2222");
         Cliente t3 = new Cliente("Aluno Teste CP1", "333.333.333-33", "(11) 93333-3333");
@@ -358,14 +357,12 @@ public class SistemaBanco {
         service.cadastrarContaSilencioso(cp2);
         JOptionPane.showMessageDialog(null, "Contas de teste cadastradas com sucesso!", "Passo 1 - Concluído", JOptionPane.INFORMATION_MESSAGE);
 
-        // 2. Realizar depósitos em todas as contas cadastradas
         JOptionPane.showMessageDialog(null, "Passo 2: Realizando depósitos de R$ 500,00 em todas as 4 contas de teste...", "Passo 2 - Depósitos", JOptionPane.INFORMATION_MESSAGE);
         cc1.depositar(500.0);
         cc2.depositar(500.0);
         cp1.depositar(500.0);
         cp2.depositar(500.0);
 
-        // 3. Realizar saques com saldo suficiente e tentar saques que ativem o cheque especial em uma Conta Corrente
         JOptionPane.showMessageDialog(null, 
             "Passo 3: Testando saques na Conta Corrente 8801-C (Saldo: R$ 500,00 | Limite Cheque Especial: R$ 200,00).\n\n" +
             "- Primeiro saque: R$ 300,00 (Deve suceder com saldo próprio).\n" +
@@ -374,7 +371,6 @@ public class SistemaBanco {
         cc1.sacar(300.0); 
         cc1.sacar(350.0); 
 
-        // 4. Tentar saque em Conta Corrente que ultrapasse o saldo mais o limite do cheque especial (deve ser bloqueado)
         JOptionPane.showMessageDialog(null, 
             "Passo 4: Tentando realizar saque de R$ 100,00 na 8801-C.\n" +
             "Saldo Atual: R$ -150,00 | Limite do Cheque Especial: R$ 200,00.\n" +
@@ -383,24 +379,19 @@ public class SistemaBanco {
             "Passo 4 - Bloqueio de Saque Extralimite", JOptionPane.INFORMATION_MESSAGE);
         cc1.sacar(100.0); 
 
-        // 5. Exibir o extrato completo de pelo menos uma conta de cada tipo
         JOptionPane.showMessageDialog(null, "Passo 5: Exibindo extrato da Conta Corrente 8801-C e da Conta Poupança 8801-P...", "Passo 5 - Extratos", JOptionPane.INFORMATION_MESSAGE);
         cc1.gerarExtrato();
         cp1.gerarExtrato();
 
-        // 6. Exibir o histórico de transações de uma conta
         JOptionPane.showMessageDialog(null, "Passo 6: Exibindo histórico detalhado da Conta Corrente 8801-C...", "Passo 6 - Histórico", JOptionPane.INFORMATION_MESSAGE);
         cc1.exibirHistorico();
 
-        // 7. Listar todas as contas cadastradas
         JOptionPane.showMessageDialog(null, "Passo 7: Listando todas as contas do banco no sistema...", "Passo 7 - Listagem", JOptionPane.INFORMATION_MESSAGE);
         service.listarTodasAsContas();
 
-        // 8. Exibir o relatório geral do banco
         JOptionPane.showMessageDialog(null, "Passo 8: Exibindo relatório consolidadado de gestão do banco...", "Passo 8 - Relatório Geral", JOptionPane.INFORMATION_MESSAGE);
         service.exibirRelatorioGeral();
 
-        // 9. Testar o novo Limite Diário de Saque (Passo Adicional do Senior Dev)
         JOptionPane.showMessageDialog(null, 
             "Passo 9: Testando o Limite Diário de Saque na Conta Poupança 8801-P.\n\n" +
             "Saldo da Conta: R$ 500,00.\n" +
@@ -411,7 +402,6 @@ public class SistemaBanco {
         
         cp1.setLimiteDiarioSaque(200.0);
         
-        // Saque deve falhar devido ao limite diário (R$ 300 > R$ 200)
         boolean sucessoSaqueLimite = cp1.sacar(300.0);
         
         JOptionPane.showMessageDialog(null, 
