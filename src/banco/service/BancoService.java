@@ -38,10 +38,6 @@ public class BancoService {
             "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    /**
-     * Cadastro silencioso usado apenas para pré-população de dados de teste,
-     * evitando caixas de diálogo repetitivas na inicialização do sistema.
-     */
     public void cadastrarContaSilencioso(ContaBancaria conta) {
         if (buscarConta(conta.getNumeroConta()) != null) {
             return;
@@ -133,7 +129,6 @@ public class BancoService {
         ContaBancaria maior = null;
         ContaBancaria menor = null;
 
-        // Encontrar maior e menor saldo
         for (ContaCorrente cc : contasCorrentes) {
             if (maior == null || cc.getSaldo() > maior.getSaldo()) {
                 maior = cc;
