@@ -115,7 +115,6 @@ src/
 
 ## 👤 Identificação do Aluno
 
-- **Nome**: [Insira seu Nome Completo]
-- **Turma**: [Insira sua Turma / Código da Disciplina]
-- **Instituição**: [Nome da sua Universidade/Faculdade]
-- **Semestre**: [Ex: 2026.1]
+- **Nome**: Wendell Teixeira
+- **Turma**: Informática 2º Período 
+- **Instituição**: CEFET-MG
